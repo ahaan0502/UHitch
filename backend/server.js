@@ -36,10 +36,11 @@ app.use('/api/post', postRoutes)
 const port = process.env.PORT || 3000;
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
-        console.log('Connected to MongoDB');
+        // listen
+        app.listen(port, () => {
+        console.log('connected to mongo and listening on port', process.env.PORT)
+        })
     })
     .catch((err) => {
-        console.error(err);
-    });
-
-module.exports = app;
+        console.log(err)
+    })
