@@ -14,7 +14,7 @@ const app = express()
 
 
 const corsOptions = {
-    origin: 'http://3.142.210.42:3000',
+    origin: '*',
     methods: 'GET,POST,PUT,PATCH,DELETE',
     allowedHeaders: 'Content-Type,Authorization',
   };
@@ -33,7 +33,7 @@ app.use('/api/user', userRoutes)
 app.use('/api/post', postRoutes)
 
 // db
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         // listen
